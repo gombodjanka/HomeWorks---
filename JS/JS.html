@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        const MY_NAME = 'Арьяна';
+        const CURRENT_YEAR = 2024;
+        const YEAR_OF_BIRTH = 2000;
+        const age = (CURRENT_YEAR - YEAR_OF_BIRTH);
+        let myRealAge = age <= 23
+        const FAVORIT_COLOR = 'розовый и лавандовый';
+        const FAVORIT_MOVIE = "'Жизнь прекрасна'";
+        let myStory = `
+        Привет!
+        Меня зовут ${MY_NAME}, мне ${age}, но действительно ли мне 24? ${myRealAge}, потому что, если честно, js немного врет, так как я родилась в декабре, мой настоящий возраст ${age-1} года <3.
+        Мой любимые цвета ${FAVORIT_COLOR}, любимый фильм ${FAVORIT_MOVIE}.`;
+        console.log(myStory)
+    </script>
+</head>
+<body>
+    <h1> Глянь в консоль! </h1> 
+</body>
+</html>

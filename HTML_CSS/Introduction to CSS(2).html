@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Моя тестовая страница</title>
+    <style>
+		p {
+			color: black;
+			font-weight: normal;
+			text-indent: 50px;
+			font-size: 150%;
+            margin: 1cm 10cm 1cm 10cm;
+		}
+		h1 {
+		    background-color: white;
+		    border-style: none;
+		    border-color: white;
+		    margin-bottom: -0.5cm ;
+		    font-size: 150%;
+		    margin-left: 10cm;
+		    margin-right: 10cm;
+		}
+		h2 {
+		    text-align: center;
+		    font-size: 200%;
+		}
+		h3 {
+            text-align: center;
+            font-size: 250%;
+        }
+        li {
+		    font-size: 150%;
+		    margin-left: 10cm;
+		    margin-right: 10cm;
+        }
+        ol {
+           background-color: gray;
+           background-clip: content-box;
+        }
+        .ok h1 {
+            text-indent: 50px;
+            background-color: white;
+            margin-left: 10cm;
+            margin-right: 10cm;
+        }
+        .lol li {
+            background-color: white;
+            font-weight: bold;
+            margin-left: 10cm;
+            margin-right: 10cm;
+        }
+        .lol-1 + li {
+            background-color: rgb(205,205,205);
+            margin-left: 10cm;
+            margin-right: 10cm;
+            text-indent: 50px
+        }
+        .lol-2 + li {
+            background-color: white;
+            margin-left: 10cm;
+            margin-right: 10cm;
+            text-indent: 50px
+        }
+        .kek li {
+            text-indent: 90px;
+            background-color: white;
+            margin-left: 10cm;
+            margin-right: 10cm;
+        }
+        .rap li {
+            background-color: rgb(205,205,205);
+            margin-left: 10cm;
+            margin-right: 10cm;
+            text-indent: 50px
+        }
+        .rap-1 + li {
+            background-color: white;
+            margin-left: 10cm;
+            margin-right: 10cm;
+            text-indent: 50px;
+        }
+        .mem li{
+            background-color: white;
+            margin-left: 10cm;
+            margin-right: 10cm;
+        }
+        .mem-1 + li{
+            background-color: rgb(205,205,205);
+            margin-left: 10cm;
+            margin-right: 10cm;
+        }
+        .mem-2 + li{
+            margin-left: 10cm;
+            margin-right: 10cm;
+            text-indent: 50px;
+        }
+        table {
+            background: rgb(250,248,253);
+            border: 3px black solid;
+            border-collapse: collapse ;
+            text-align: center;
+            margin-left: 15cm;
+            margin-right: 15cm;
+        }
+        a {
+            font-weight: normal;
+			text-indent: 50px;
+			font-size: 150%;
+            margin: 1cm 10cm 1cm 10cm;
+        }
+		body {
+		    background-image: url(https://i.pinimg.com/564x/f1/89/d6/f189d6ce857313e5d7d37a67664432b1.jpg);
+		}
+	</style>
+</head>
+
+<body>
+    <h3>Конспект по темам: комбинация селекторов и специфичность.  </h3>
+    <p>Предположим, есть страница на сайте, где слева размещены статьи, а справа, в боковой колонке идет новостная лента. Ниже псевдоразметка, чтобы было понятно, о чем идет речь.</p>
+    <h1>&lt;div class="articles&gt;</h1>
+    <div class="ok">
+        <h1>&lt;h3&gt;Заголовок статьи 1&lt;/h3&gt;</h1>
+        <h1>&lt;h3&gt;Заголовок статьи 2&lt;/h3&gt;</h1>
+     </div>    
+    <h1>&lt;/div&gt;</h1>
+    <h1>&lt;div class="sidebar"3&gt;</h1>
+    <div class="ok">
+        <h1>&lt;h3&gt;Заголовок новости 1&lt;/h3&gt;</h1>
+        <h1>&lt;h3&gt;Заголовок новости 2&lt;/h3&gt;</h1>
+    </div>
+    <h1>&lt;/div&gt;</h1>
+    <p>Для заголовков и статей, и новостей, используются теги &lt;h3&gt;.</p>
+    <p>Cтоит задача, что заголовки статей должны быть по центру, а заголовки новостей надо сделать темно-красного цвета. </p>
+    <h3>Комбинации селекторов.</h3>
+    <p>Селекторы можно комбинировать друг с другом используя, так называемые комбинаторы. </p>
+    <p>В задачу, описанную выше, мы можем решить, написав два правила.</p>
+    <p>Для заголовков статей: </p>
+    <ol>
+    <div class="lol">
+        <li class="lol-1">.articles h3 {</li>
+        <li>text-align: center;</li>
+        <li>}</li>
+    </div>
+    </ol>
+    <p>Для заголовков новостей: </p>
+    <ol>
+    <div class="lol">
+        <li  class="lol-1">.sidebar h3 {</li>
+        <li>color: darkred;</li>
+        <li>}</li>
+    </div>
+    </ol>
+    <p>Здесь мы использовали комбинатор "пробел". Т.е. селектор .articles h3  выберет для изменений теги &lt;h3&gt;, которые находятся внутри элемента с классом articles <strong>(вне зависимости от уровня вложенности)</strong>.</p>
+    <p>Этот комбинатор называется <strong>«комбинатор потомков»</strong> и используется очень часто.</p>
+    <h2>Дочерний селектор.</h2>
+    <ol>
+    <div class="lol">
+        <li class="lol-1">&lt;div class="articles&gt;</li>
+        <li class="lol-2">&lt;h3&gt;Заголовок статьи 1&lt;/h3&gt;</li>
+        <li class="lol-1">&lt;h3&gt;Заголовок статьи 2&lt;/h3&gt;</li>
+        <li>&lt;div class="promo"&gt;</li>
+        <div class="kek">
+            <li>&lt;h3&gt;Рекламная акция&lt;/h3&gt;</li>
+        </div>
+         <div class="rap">
+             <li class="rap-1">&lt;/div&gt;</li>
+             <li>&lt;h3&gt;Заголовок статьи 3&lt;/h3&gt;</li>
+             <li>&lt;h3&gt;Заголовок статьи 4&lt;/h3&gt;</li>
+        </div>
+        <li>&lt;/div&gt;</li>
+    </div>
+    </ol>
+    <p>У нас, среди статей, появился рекламный блок, и в нем также используется заголовок &lt;h3&gt;. </p>
+    <p> Использованный нами ранее селектор .articles h3  подействует и на заголовок рекламной акции, поскольку он не учитывает уровень вложенности.</p>
+    <p> Если мы хотим изменить только заголовки статей, не трогая рекламный заголовок, то лучше использовать <strong>«дочерний селектор»</strong> — символ > .</p>
+    <ol>
+    <div class="lol">
+        <li  class="lol-1">.articles > h3 {</li>
+        <li>text-align: center;</li>
+        <li>}</li>
+    </div>
+    </ol>
+    <p>Селектор .articles > h3  выберет для изменения теги h3, которые находятся непосредственно в элементе с классом articles , а теги рекламных заголовков затронуты не будут.</p>
+    <h2>Комбинатор всех соседних элементов.</h2>
+    <p>Комбинатор ~  выберет все соседние элементы, т.е. элементы у которых такой же контейнер, как и у указанного элемента. Слово «соседний» в данном случае обозначает, что будут выбраны все элементы находящиеся после указанного.</p>
+    <ol>
+    <div class="lol">
+        <li class="lol-1">&lt;div class="articles&gt;</li>
+        <li class="lol-2">&lt;h3 class="first-article"&gt;Заголовок статьи 1&lt;/h3&gt;</li>
+        <li class="lol-1">&lt;h3&gt;Заголовок статьи 2&lt;/h3&gt;</li>
+        <li>&lt;div class="promo"&gt;</li>
+        <div class="kek">
+            <li>&lt;h3&gt;Рекламная акция&lt;/h3&gt;</li>
+        </div>
+         <div class="rap">
+             <li class="rap-1">&lt;/div&gt;</li>
+             <li>&lt;h3&gt;Заголовок статьи 3&lt;/h3&gt;</li>
+             <li>&lt;h3&gt;Заголовок статьи 4&lt;/h3&gt;</li>
+        </div>
+        <li>&lt;/div&gt;</li>
+    </div>
+    </ol>
+    <ol>
+    <div class="lol">
+        <li  class="lol-1">.articles ~ h3 {</li>
+        <li>color: blue;</li>
+        <li>}</li>
+    </div>
+    </ol>
+    <p>В примере выше все заголовки &lt;h3&gt;, которые находятся после заголовка с классом .first-article , станут синего цвета. Заголовок, находящийся внутри &lt;div&gt; с классом .promo  затронут не будет, поскольку у него другой контейнер.</p>
+    <h2>Комбинатор следующего соседнего элемента.</h2>
+    <p>Комбинатор +  позволяет выбрать элемент, который находится сразу после указанного элемента. При этом, конечно, у них должен быть общий контейнер.</p>
+    <ol>
+    <div class="lol">
+        <li  class="lol-1">.articles + * {</li>
+        <li>margin-top: 3rem;</li>
+        <li>}</li>
+    </div>
+    </ol>
+    <p>В примере выше, написано правило, которое обеспечивает, что любой (один) элемент, который находятся сразу после заголовка с классом .first-article , будет иметь отступ сверху размером 3rem .</p>
+    <h2>Комбинатор запятая.</h2>
+    <p>Комбинатор, позволяет сгруппировать селекторы, т.е. задать несколько селекторов для одного правила.</p>
+    <ol>
+    <div class="lol">
+        <li  class="lol-1">h1, h2, h3, h4, h5, h6 {</li>
+        <li>margin-bottom: 0;</li>
+        <li>}</li>
+    </div>
+    </ol>
+    <p>В примере выше, мы обнуляем отступы снизу сразу у всех заголовков.</p>
+    <h3>Специфичность.</h3>
+    <p>Посмотрим пример:</p>
+     <ol>
+    <div class="lol">
+        <li class="lol-1">&lt;div class="sidebar"&gt;</li>
+        <li>&lt;h3&gt;Заголовок новости&lt;/h3&gt;;</li>
+        <li>&lt;/div&gt;</li>
+    </div>
+    </ol>
+    <ol>
+        <div class="lol">
+            <li class="lol-1">.sidebar h3 {</li>
+            <li>color: red;</li>
+            <div class="mem">
+                <li class="mem-1">}</li>
+                <li class="mem-2">h3 {</li>
+                <li class="mem-1">color: blue;</li>
+                <li>}</li>
+            </div>
+        </div>
+    </ol>
+    <p>В примере цвет текста для тега &lt;h3&gt;, находящегося в контейнере с классом .sidebar , прописан 2 раза.</p>
+    <p>Вопрос: «Какой цвет будет у этого элемента?» </p>
+    <p>Ответ: «Красный, поскольку селектор .sidebar h3  более специфичен, еще говорят: селектор имеет больший вес».</p>
+    <p><strong>Специфичность (вес) </strong>селектора определяется при помощи 4-х различных значений. Эти значения можно, условно, представить как цифры: тысячи, сотни, десятки, единицы.</p>
+    <ul>
+        <li><strong>Тысяча</strong> – это встроенные стили, добавляемые непосредственно в сам элемент в HTML-разметке.</li>
+        <li><strong>Сотня</strong>– это идентификатор.</li>
+        <li><strong>Десятки</strong> – это классы.</li>
+        <li><strong>Единицы</strong> – это сам элемент или псевдоэлемент.</li>
+    </ul>
+    <p>Если не очень понятно, то посмотрите таблицу ниже и все станет ясно:</p>
+    <table border="1" cellspacing="2" cellpadding="15">
+   <tr>
+      <td><strong>Селектор</strong></td>
+      <td><strong>Тысячи</strong></td>
+      <td><strong>Сотни</strong></td>
+      <td><strong>Десятки</strong></td>
+      <td><strong>Единицы</strong></td>
+      <td><strong>Специфичность</strong></td>
+   </tr>
+   <tr>
+      <td>div</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0001</td>
+   </tr>
+   <tr>
+      <td>.some-class</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0010</td>
+   </tr>
+   <tr>
+      <td>#myid</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0100</td>
+   </tr>
+   <tr>
+      <td>&lt;p style=»color: red»&gt;текст&lt;/p&gt;</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1000</td>
+   </tr>
+   <tr>
+      <td>.some-class div</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0011</td>
+   </tr>
+    <tr>
+      <td>#myid .some-class div</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0111</td>
+   </tr>
+    <tr>
+      <td>.some-class ul li</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+      <td>0012</td>
+   </tr>
+    <tr>
+      <td>.some-class .my-class p span</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>2</td>
+      <td>0022</td>
+   </tr>
+    <tr>
+      <td>.some-class div</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0011</td>
+   </tr>
+</table>
+   <p>В ситуации, если специфичность у селекторов одинакова, действовать будет правило, которое находится ниже в css-файле.</p>
+   <p>Если правила находятся в разных css-файлах, то действовать будет правило, которое расположено в файле, подключенном позднее (ниже).</p>
+   <h2>Источник:</h2>
+   <a href="https://progtips.ru/yazyki-programmirovaniya/osnovy-css-chast-2-kombinaczii-selektorov-nasledovanie-kaskadirovanie-i-speczifichnost.html">Основы CSS. Часть 2. Комбинации селекторов, наследование, каскадирование и специфичность</a>
+</body>
+
+</html>
