@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let firstDish = {
+            name: `Шакшука`,
+            ingredients: [`Лук`,`Оливковое масло`,`Помидоры`,`Яйца`,`Томатная паста`,`Чеснок`,`Сладкий перец`, `Приправы`],
+            calories: 438
+        };
+        let secondDish = {
+            name:`,Болоньезе`,
+            ingredients: [`Лук`,`Оливковое масло`,`Мясной фарш`,`Помидоры в собственном соку`,`Чеснок`,`Сладкий перец`, `Приправы`,`Спагетти`, `Тертый твердый сыр`],
+            calories: 491
+        };
+        let thirdDish = {
+            name:`Сырники`,
+            ingredients: [`Творог`,`Мука`,`Яйца`,`Сахар`,`Масло`,`Соль`],
+            calories: 265
+        };
+        let  menu = [firstDish, secondDish, `thirdDish`]; // создала массив из объектов
+        menu.shift(); // удалила 1 блюдо из массива
+        menu.unshift(firstDish); // вернула его в начало массива
+        firstDish.ingredients.splice(2, 1); // удалила один из ингридиентов 1 блюда
+        firstDish.expenses = 280; // затраты на 1 блюдо
+        firstDish.price = 650; // прайс 1 блюда 
+        secondDish.expenses =150; // затраты на 2 блюдо
+        secondDish.price = 650; // прайс 2 блюда
+        thirdDish.expenses = 100; // затраты на 3 блюдо
+        thirdDish.price = 350; // прайс 3 блюда
+        let profit = `Чистая прибыль от первого блюда составит ${firstDish.price-firstDish.expenses}, от второго блюда составит ${secondDish.price-secondDish.expenses}, от третьего блюда составит ${thirdDish.price-thirdDish.expenses}, ну и чистая прибыль в совокупности получается ${(firstDish.price + secondDish.price + thirdDish.price)-(firstDish.expenses + secondDish.expenses + thirdDish.expenses)}`;     
+        console.log(profit); // вот тут можно посмотреть мою прибыль :3
+        menu.splice(0, 2); // удалила из массива все элементы, кроме одного 
+    </script>
+</head>
+<body>
+    <h1> Глянь в консоль! </h1> 
+</body>
+</html>
