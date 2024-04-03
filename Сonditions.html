@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let gender = prompt (`What is your gender?`);
+        if (gender.toLowerCase() == `female`) {
+            alert (`Congratulations, you are a woman!`);
+            alert (`I'll tell you a secret, I'm a woman too`);
+        } else if (gender.toLowerCase() == `male`) {
+            alert (`Congratulations, you are the man!`);
+        } else {
+            alert (`Who are you?`);
+        }
+
+        let firstQuestion = prompt (`Кто режиссер аниме-фильма «Унесённые при́зраками» ?`);
+        let firstAnswer = (firstQuestion.toLowerCase() == `хаяо миядзаки`) ? `Вау, а ты знаток!`: `Это произведение прекрасного Хаяо Миядзаки, рекомендую познакомиться с его работами.`;
+        alert(firstAnswer);
+
+        let secondQuestion = prompt (`Верно ли утверждение: 2+2=22. Ответ запишите в виде слов "правда/ложь".`);
+        let secondAnswer = (secondQuestion.toLowerCase() == `ложь`);
+        alert (secondAnswer);
+
+        let thirdQuestion = prompt (`Сколько будет 2+2*2=?`);
+        let thirdAnswer = (thirdQuestion == 6) ? `Поздравляю, у тебя все в порядке с внимательностью!` :
+        (thirdQuestion == 8) ? `Так так, кажется кто то забыл, что мы первым делом умножаем, а потом уже все остальное. Попробуй снова.`:
+        `Какой интересный ответ, как ты к этому пришел? Попробуй снова.`;
+        alert (thirdAnswer);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
