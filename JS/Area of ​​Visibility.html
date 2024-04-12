@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let menu = [
+            {
+                name: "Шакшука",
+                ingredients: ["Лук","Оливковое масло","Помидоры","Яйца","Томатная паста","Чеснок","Сладкий перец","Приправы"],
+                price: 650
+            },
+            {
+                name: "Болоньезе",
+                ingredients: ["Лук","Оливковое масло","Мясной фарш","Помидоры в собственном соку","Чеснок","Сладкий перец", "Приправы","Спагетти", "Тертый твердый сыр"],
+                price: 650
+            },
+            {
+                name: "Сырники",
+                ingredients: ["Творог","Мука","Яйца","Сахар","Масло","Соль"],
+                price: 350
+            }
+        ]
+        
+        let ingredientsPrice = {
+            "Лук": 10,
+            "Оливковое масло": 50,
+            "Помидоры": 45,
+            "Яйца": 50,
+            "Томатная паста": 50,
+            "Чеснок": 5,
+            "Сладкий перец": 50,
+            "Приправы": 10,
+            "Мясной фарш": 60,
+            "Помидоры в собственном соку": 30,
+            "Спагетти":30,
+            "Тертый твердый сыр": 30,
+            "Творог": 50,
+            "Мука": 20,
+            "Сахар": 5,
+            "Масло": 20,
+            "Соль": 5
+        }
+
+        for (let i = 0; i < menu.length; i++) {
+            let dish = menu [i];
+            let totalProfit = 0;
+            let dishExpenses = 0;
+            
+            for (let f = 0; f < dish.ingredients.length; f++) {
+                let ingridient = dish.ingredients[f];
+                dishExpenses += ingredientsPrice[ingridient];
+            }
+            totalProfit = dish.price - dishExpenses;
+            menu[i].profit = totalProfit;
+            let descriptionDish = `
+            Название блюда: ${dish.name}
+            (${dish.ingredients})
+            Стоимость блюда: ${dish.price}`;
+            menu[i].description = descriptionDish;
+        }
+
+        let menuPrinting = `
+                                                 Меню                                
+        ${menu[0].description}
+        ${menu[1].description}
+        ${menu[2].description}`;
+        console.log(menuPrinting);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
