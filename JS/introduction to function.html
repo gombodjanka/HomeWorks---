@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function number(a, b) {
+            if (a < b) {
+                return a;
+            } else {
+                return b;
+            }
+        }
+        let result = number(5, 3); //выведет 3
+
+        let menu = [
+            {
+                name: "Шакшука",
+                ingredients: ["Лук","Оливковое масло","Помидоры","Яйца","Томатная паста","Чеснок","Сладкий перец","Приправы"],
+                price: 650
+            },
+            {
+                name: "Болоньезе",
+                ingredients: ["Лук","Оливковое масло","Мясной фарш","Помидоры в собственном соку","Чеснок","Сладкий перец", "Приправы","Спагетти", "Тертый твердый сыр"],
+                price: 650
+            },
+            {
+                name: "Сырники",
+                ingredients: ["Творог","Мука","Яйца","Сахар","Масло","Соль"],
+                price: 350
+            }
+        ]
+        
+        let ingredientsPrice = {
+            "Лук": 10,
+            "Оливковое масло": 50,
+            "Помидоры": 45,
+            "Яйца": 50,
+            "Томатная паста": 50,
+            "Чеснок": 5,
+            "Сладкий перец": 50,
+            "Приправы": 10,
+            "Мясной фарш": 60,
+            "Помидоры в собственном соку": 30,
+            "Спагетти":30,
+            "Тертый твердый сыр": 30,
+            "Творог": 50,
+            "Мука": 20,
+            "Сахар": 5,
+            "Масло": 20,
+            "Соль": 5
+        }
+
+        function profit(numberDishPrise, dishIngredients) {
+            let dishExpenses = 0; 
+
+            for (let i = 0; i < dishIngredients.length; i++) {
+                let ingredient = dishIngredients[i];
+                dishExpenses += ingredientsPrice[ingredient];
+            }
+            return numberDishPrise - dishExpenses;
+        }
+
+        let firstDishProfit = profit(menu[0].price, menu[0].ingredients);
+        menu[0].profit = firstDishProfit;
+        let secondDishProfit = profit(menu[1].price, menu[1].ingredients);
+        menu[1].profit = secondDishProfit;
+        let thirdDishProfit = profit(menu[2].price, menu[2].ingredients);
+        menu[2].profit = thirdDishProfit;
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
