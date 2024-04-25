@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let userData = {
+            admin: "root",
+            user: "123"
+        };
+
+        let userName = Object.keys(userData);
+
+        let name = prompt (`Введите ваше имя`);
+        let password = prompt (`Введите пароль`)
+
+        if (name.toLowerCase() == userName[0] && password.toLowerCase() == userData.admin || name.toLowerCase() == userName[1] && password.toLowerCase() == userData.user) {
+            alert("Вы вошли");
+        } else if (name.toLowerCase() == userName[0] && password.toLowerCase() != userData.admin || name.toLowerCase() == userName[1] && !password.toLowerCase() != userData.user) {
+            alert("Неправильный пароль");
+        } else if (name.toLowerCase() != userName[0] && password.toLowerCase() == userData.admin || name.toLowerCase() != userName[1] && password.toLowerCase() == userData.user || name.toLowerCase() != userName[0] && password.toLowerCase() != userData.admin || name.toLowerCase() != userName[1] && password.toLowerCase() != userData.user) {
+            alert("Такого пользователя не существует");
+        }
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
