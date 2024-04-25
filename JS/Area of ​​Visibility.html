@@ -42,6 +42,8 @@
             "Масло": 20,
             "Соль": 5
         }
+        
+        let menuPrinting = `                                          Меню                                `;
 
         for (let i = 0; i < menu.length; i++) {
             let dish = menu [i];
@@ -58,14 +60,16 @@
             Название блюда: ${dish.name}
             (${dish.ingredients})
             Стоимость блюда: ${dish.price}`;
-            menu[i].description = descriptionDish;
+            // menu[i].description = descriptionDish;
+            menuPrinting = menuPrinting +`\n` + descriptionDish;
+
         }
 
-        let menuPrinting = `
-                                                 Меню                                
-        ${menu[0].description}
-        ${menu[1].description}
-        ${menu[2].description}`;
+        // let menuPrinting = `
+        //                                          Меню                                
+        // ${menu[0].description}
+        // ${menu[1].description}
+        // ${menu[2].description}`;
         console.log(menuPrinting);
 
     </script>
