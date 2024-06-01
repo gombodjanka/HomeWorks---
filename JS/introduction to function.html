@@ -61,13 +61,17 @@
             }
             return numberDishPrise - dishExpenses;
         }
-
-        let firstDishProfit = profit(menu[0].price, menu[0].ingredients);
-        menu[0].profit = firstDishProfit;
-        let secondDishProfit = profit(menu[1].price, menu[1].ingredients);
-        menu[1].profit = secondDishProfit;
-        let thirdDishProfit = profit(menu[2].price, menu[2].ingredients);
-        menu[2].profit = thirdDishProfit;
+        
+        for (let i = 0; i < menu.length; i++) {
+            menu[i].profit = profit(menu[i].price, menu[i].ingredients);
+        }
+        
+        // let firstDishProfit = profit(menu[0].price, menu[0].ingredients);
+        // menu[0].profit = firstDishProfit;
+        // let secondDishProfit = profit(menu[1].price, menu[1].ingredients);
+        // menu[1].profit = secondDishProfit;
+        // let thirdDishProfit = profit(menu[2].price, menu[2].ingredients);
+        // menu[2].profit = thirdDishProfit;
     </script>
 </head>
 <body>
