@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let menu = [
+            {
+                name: "Шакшука",
+                ingredients: ["Лук","Оливковое масло","Помидоры","Яйца","Томатная паста","Чеснок","Сладкий перец","Приправы"],
+                price: 650
+            },
+            {
+                name: "Болоньезе",
+                ingredients: ["Лук","Оливковое масло","Мясной фарш","Помидоры в собственном соку","Чеснок","Сладкий перец", "Приправы","Спагетти", "Тертый твердый сыр"],
+                price: 650
+            },
+            {
+                name: "Сырники",
+                ingredients: ["Творог","Мука","Яйца","Сахар","Масло","Соль"],
+                price: 350
+            }
+        ]
+        
+        let ingredientsPrice = {
+            "Лук": 10,
+            "Оливковое масло": 50,
+            "Помидоры": 45,
+            "Яйца": 50,
+            "Томатная паста": 50,
+            "Чеснок": 5,
+            "Сладкий перец": 50,
+            "Приправы": 10,
+            "Мясной фарш": 60,
+            "Помидоры в собственном соку": 30,
+            "Спагетти":30,
+            "Тертый твердый сыр": 30,
+            "Творог": 50,
+            "Мука": 20,
+            "Сахар": 5,
+            "Масло": 20,
+            "Соль": 5
+        }
+
+        let meatIngredients = ["Мясной фарш", "Мясо", "Фарш", "Cвинина", "Говядина", "Конина", "Курица"] //написала не весь список, но допустим, что тут весь?
+
+        // reduce
+
+        menu.forEach(function(dish) {
+            dish.cost = dish.ingredients.reduce(function(totalCost, ingredient) {
+                return totalCost + ingredientsPrice[ingredient];
+            }, 0);
+        });
+
+        // map
+
+        let menuWithPrice = menu.map(function (dish) {
+            return {
+                name: dish.name,
+                price: dish.price
+           };
+        });
+        console.log(menuWithPrice);
+
+        //some
+
+        let isVegetarian = menu.some(function(dish) {
+            return !dish.ingredients.some(function(ingredient) {
+                return meatIngredients.includes(ingredient);
+            });
+        });
+        console.log(isVegetarian); // true, если есть хоть 1 вегет. блюдо
+
+        //every
+
+        let vegetarianMenu = menu.every(function(dish) {
+            return dish.ingredients.every(function(ingredient) {
+                return !meatIngredients.includes(ingredient);
+            });
+        });
+        console.log(vegetarianMenu); // false, если есть хоть 1 мясное блюдо
+
+        //filter
+
+        let vegetarianDish = menu.filter(function(dish) {
+            return dish.ingredients.every(function(ingredient) {
+                return !meatIngredients.includes(ingredient);
+            });
+        });
+        console.log(vegetarianDish);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

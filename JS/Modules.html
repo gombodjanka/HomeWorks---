@@ -5,12 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script type="module">
-        import { profit } from "./scripts/calc-profit.js";
-        import { menu, ingredientsPrice } from "./scripts/menu-and-ingridients-prise.js";
+        import { profit } from "./Scripts/calc-profit.js";
+        import { ingredientsPrice, menu } from "./Scripts/menu-and-ingredients-price.js";
 
         for (let i = 0; i < menu.length; i++) {
             menu[i].profit = profit(menu[i].price, menu[i].ingredients);
         }
+
+        console.log(menu[0]);
     </script>
 </head>
 <body>
