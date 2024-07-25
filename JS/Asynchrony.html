@@ -1,0 +1,37 @@
+.<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        async function menuAndIngPrice() {
+            try {
+                let r = await fetch("./Asynchrony/menu.json");
+                let menu = await r.json(); 
+                let r2 = await fetch("./Asynchrony/ingredientsPrice.json");
+                let ingredientsPrice = await r2.json();
+                function profit(numberDishPrise, dishIngredients) {
+                    let dishExpenses = 0; 
+                    for (let i = 0; i < dishIngredients.length; i++) {
+                        let ingredient = dishIngredients[i];
+                        dishExpenses += ingredientsPrice[ingredient];
+                    }
+                    return numberDishPrise - dishExpenses;
+                }
+                for (let i = 0; i < menu.length; i++) {
+                    menu[i].profit = profit(menu[i].price, menu[i].ingredients);
+                }    
+                console.log(menu);
+            }catch (error) {
+                console.error(error);
+            } 
+        }
+
+        menuAndIngPrice();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
