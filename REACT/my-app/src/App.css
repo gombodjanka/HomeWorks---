@@ -21,7 +21,7 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #fff7f7;
 }
 
 .App-link {
@@ -37,6 +37,11 @@
   }
 }
 
+.flex-container {
+  display: flex;
+  height: 100vh;
+}
+
 h1 {
   color:#031d5e;
   font-size:85px;
@@ -47,10 +52,10 @@ h1 {
 
 .menu {
   display: flex;
+  justify-content: center; 
   gap: 25px;
-  flex-wrap: wrap;
-  justify-content: center;
-  text-align: left;
+  text-align: left; 
+  justify-content: center; 
 }
  
 h2 {
@@ -64,8 +69,15 @@ h3 {
   font-weight: 100;
   text-align: left;
 }
+
 .card {
-  max-width: 350px; 
+  max-width: 300px; 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+  padding: 5px;
 }
 
 .card img {
@@ -73,4 +85,63 @@ h3 {
   aspect-ratio: 1;
   border-radius: 15px;
   overflow: hidden;
+}
+
+.main-page {
+  flex: 4;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.right-page {
+  flex: 1;
+  background-color: #f0f0f0;
+}
+
+h5 {
+  color:#031d5e;
+  font-size:30px;
+  font-family:'Arial';
+  text-align: center;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+.button {
+  padding: 10px;
+  border-radius: 12px;
+  font-size: 18px;
+  transition: background-color 0.3s, color 0.3s;
+  background-color: #F1F2FE;
+  border-color: #010409;
+}
+
+.button:hover {
+  background-color: #031d5e;
+  color: white;
+}
+
+span {
+  font-family: Trebuchet MS, sans-serif;
+  font-weight: 700;
+}
+
+.basket {
+  text-align: left;
+  font-family: Trebuchet MS, sans-serif;
+  font-weight: 100;
+  font-size: 20px;
+}
+
+.total-cost {
+  text-align: right;
+  font-family: Trebuchet MS, sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  padding-right: 15px;
 }

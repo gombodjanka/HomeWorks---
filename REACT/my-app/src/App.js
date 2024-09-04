@@ -1,7 +1,10 @@
-import logo from './logo.svg';
 import './App.css';
+import { Button } from './components/Button';
+import { useState } from 'react';
 
 function App() {
+  const [cart, setCart] = useState ([]);
+  const cartSum = cart.reduce ((acc, item) => acc + item.price, 0);
   let menu = [
     {
       name: "Спагетти Болоньезе",
@@ -24,20 +27,62 @@ function App() {
   ]
   return (
     <div className="App">
-      <h1>МЕНЮ</h1>
-      <div className='menu'>   
-      {menu.map (function (item) { 
-        return (
-          <div className='card'>
-            <img src={item.image} alt={item.name}/>
-            <h2>{item.name}</h2>
-            <h3>Ингредиенты: {item.ingredients.join(', ')}</h3>
-            <h4>{item.price}</h4>
-    
+      <div className='flex-container'>
+        <div className='main-page'>
+          <h1>МЕНЮ</h1>
+            <div className='menu'>   
+              {menu.map (function (item) { 
+                return (
+                  <div className='card' key={item.name}>
+                    <img src={item.image} alt={item.name}/>
+                    <h2>{item.name}</h2>
+                    <h3>Ингредиенты: {item.ingredients.join(', ')}</h3>
+                    <div className="button-container">
+                      <span>{item.price}</span>
+                      <button 
+                        className="button"
+                        onClick={() => {
+                          setCart([...cart, item]);
+                          console.log(cart)
+                        }}
+                      >
+                        В корзину
+                      </button>
+                    </div>
+                  </div>
+                );  
+              })}
           </div>
-        );  
-      })}
-      </div>
+        </div>
+        <div className='right-page'>
+          <h5> Корзина:</h5>
+          {cart.length > 0 ? (
+            <>
+              <ul className='basket'>
+                {cart.map((item) => (
+                  <li>
+                    {item.name} - {item.price} руб
+                  </li>
+                ))}
+              </ul> 
+              <div className='total-cost'>Итого: {cartSum} руб</div> 
+            </>  
+          ):(
+            <div style={{ 
+              fontFamily: "Trebuchet MS, sans-serif",
+              fontWeight: "bold",
+              fontSize: "20px"
+            }}>
+            В корзине ничего нет</div>
+          )}
+        </div>
+      </div>  
+      {/* <Button
+          text = "count"
+          style = {{
+            backgroundColor: "green",
+          }}
+        />   */}
     </div>
   );
 }
