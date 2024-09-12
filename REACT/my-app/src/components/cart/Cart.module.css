@@ -1,0 +1,46 @@
+.cart {
+    text-align: left;
+    font-family: Trebuchet MS, sans-serif;
+    font-weight: 100;
+    font-size: 20px;
+  }
+
+.emptyCart {
+    font-family: Trebuchet MS, sans-serif;
+    font-weight: Bold;
+    font-size: 20px;
+}
+
+h5 {
+    color:#031d5e;
+    font-size:30px;
+    font-family:'Arial';
+    text-align: center;
+  }
+
+.delete {
+    padding: 2px;
+    border-radius: 5px;
+    font-size: 18px;
+    transition: background-color 0.3s, color 0.3s;
+    background-color: #f0f0f0;
+    border-color: #010409;
+    margin-left: 10px;
+}
+
+.delete:hover {
+  background-color: #F0243C;
+  color: white;
+}
+
+.cartList {
+  line-height: 1.8;
+} 
+  /* .total-cost {
+    text-align: right;
+    font-family: Trebuchet MS, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    padding-right: 15px;
+  }
+   */

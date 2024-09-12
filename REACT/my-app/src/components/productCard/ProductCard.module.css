@@ -1,0 +1,55 @@
+.card {
+    max-width: 300px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+    padding: 5px;
+  }
+
+.image {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+
+span {
+    font-family: Trebuchet MS, sans-serif;
+    font-weight: 700;
+}
+  
+h2 {
+    font-family: Trebuchet MS, sans-serif;
+    font-weight: 700;
+    font-size:30px;
+}
+  
+h3 {
+    font-family: Trebuchet MS, sans-serif;
+    font-weight: 100;
+    text-align: left;
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+}
+
+.button {
+  padding: 10px;
+  border-radius: 12px;
+  font-size: 18px;
+  transition: background-color 0.3s, color 0.3s;
+  background-color: #F1F2FE;
+  border-color: #010409;
+}
+
+.button:hover {
+  background-color: #031d5e;
+  color: white;
+}
